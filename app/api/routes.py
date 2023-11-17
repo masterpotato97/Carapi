@@ -11,8 +11,9 @@ def getdata():
 @api.route('/car', methods = ['POST'])
 @token_required
 def create_car(current_user_token):
+    print(request.json)
     name = request.json['name']
-    model = request.json['model']
+    model = request.json['carmodel']
     address = request.json['address'] 
     make=request.json['make']
     user_token = current_user_token.token

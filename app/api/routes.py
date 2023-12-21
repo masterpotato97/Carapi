@@ -13,9 +13,10 @@ def getdata():
 def create_car(current_user_token):
     print(request.json)
     name = request.json['name']
+    make=request.json['make']
     model = request.json['carmodel']
     address = request.json['address'] 
-    make=request.json['make']
+    
     user_token = current_user_token.token
 
     print(f'BIG TESTER: {current_user_token.token}')
@@ -45,9 +46,10 @@ def get_cars(current_user_token):
 def update_car(current_user_token, id):
     car = Car.query.get(id) 
     car.name = request.json['name']
+    car.make = request.json['make']
     car.model = request.json['model']
     car.address = request.json['address'] 
-    car.make = request.json['make']
+    
     car.user_token = current_user_token.token
 
     db.session.commit()

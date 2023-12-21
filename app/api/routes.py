@@ -47,6 +47,7 @@ def update_car(current_user_token, id):
     car.name = request.json['name']
     car.model = request.json['model']
     car.address = request.json['address'] 
+    car.make = request.json['make']
     car.user_token = current_user_token.token
 
     db.session.commit()
